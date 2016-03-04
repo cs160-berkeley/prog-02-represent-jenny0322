@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="158dp"
+    android:background="#ffffff"
+    >
+    <ImageView
+        android:id= "@+id/avatar_dynamic"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/janet_bewley"
+
+        />
+
+    <TextView
+        android:id = "@+id/name_dynamic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/avatar_dynamic"
+        android:text = "Janet Bewley"
+        android:layout_alignTop="@id/avatar_dynamic"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/party_dynamic"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/avatar_dynamic"
+        android:layout_alignLeft="@id/avatar_dynamic"
+        android:gravity="center"
+        android:text = "Democrat"
+        android:textSize="18dp"
+        android:layout_marginTop="3dp"
+        android:textColor="#2853fc" />
+
+    <TextView
+        android:id="@+id/type_dynamic"
+        android:layout_alignLeft="@id/party_dynamic"
+        android:layout_below="@id/party_dynamic"
+        android:gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text = "Senator"
+        android:textSize = "18dp"
+        android:textColor="#000000"
+        android:layout_marginTop="3dp"/>
+
+    <TextView
+        android:id="@+id/emailheading_dynamic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:layout_alignLeft="@id/name_dynamic"
+        android:layout_toRightOf="@id/avatar_dynamic"
+        android:layout_below="@id/name_dynamic"
+        android:textColor="#000000"
+        android:layout_marginTop="1dp"
+        android:textSize="12dp"
+        />
+
+    <TextView
+        android:id="@+id/email_dynamic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_dynamic"
+        android:layout_marginTop="1dp"
+        android:textSize="12dp"
+        android:layout_marginLeft="2dp"
+        android:textColor="#0B0080"
+        android:layout_toRightOf="@id/emailheading_dynamic"
+        android:text = "sen.bewley@legis.wi.gov"/>
+
+    <TextView
+        android:id="@+id/siteheading_dynamic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Site:"
+        android:layout_alignLeft="@id/name_dynamic"
+        android:layout_toRightOf="@id/avatar_dynamic"
+        android:layout_below="@id/emailheading_dynamic"
+        android:textColor="#000000"
+        android:layout_marginTop="2dp"
+        android:textSize="12dp"
+        />
+
+    <TextView
+        android:id="@+id/site_dynamic"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_dynamic"
+        android:textColor="#0B0080"
+        android:layout_toRightOf="@id/siteheading_dynamic"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:textSize="12dp"
+        android:text = "http://legis.wisconsin.gov/senate/25/bewley"/>
+
+    <Button
+        android:id="@+id/next_dynamic"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="10dp"
+        android:background = "@drawable/next"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_above="@+id/party_dynamic"
+        android:layout_alignParentEnd="true"
+        />
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/twitter_dynamic"
+        android:text="Janet Bewley @janetbewey4wi 2h"
+        android:textSize="11dp"
+        android:layout_below="@id/site_dynamic"
+        android:layout_alignLeft="@id/emailheading_dynamic"/>
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/twitterdetail_dynamic"
+        android:text = "Congratulations to our new chariwomen, Marth Laning !! Follow her @laningforwi"
+        android:layout_below="@id/twitter_dynamic"
+        android:layout_alignLeft="@id/twitter_dynamic"
+        android:textSize="12dp"
+        android:textColor="#000000"
+        />
+
+
+</RelativeLayout>

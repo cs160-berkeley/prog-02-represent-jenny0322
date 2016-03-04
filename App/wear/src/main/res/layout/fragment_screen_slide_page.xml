@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id = "@+id/content"
+    >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:id="@+id/photo_watch"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/janet_bewley"
+        android:contentDescription="photo"
+        android:onClick="showDetail"
+        />
+
+    <TextView
+        android:id="@+id/name_watch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/photo_watch"
+        android:layout_centerHorizontal="true"
+        android:text = "Janet Bewley"
+
+        android:textSize="20dp" />
+    <TextView
+        android:id ="@+id/information_watch"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Democrat Senator"
+        android:layout_below="@id/name_watch"
+        />
+    <Button
+        android:id = "@+id/past_data"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@id/information_watch"
+        android:layout_centerHorizontal="true"
+        android:text = "2012 Vote Data"
+        android:textSize="10dp"
+        android:onClick="displayVote"/>
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="motionlogger.jennychen.com.represent.MainActivity"
+    android:background="#f1f1f1"
+    tools:showIn = "@layout/activity_detail">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:id= "@+id/panel"
+        android:background="#ffffff" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:id="@+id/avatar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop = "15dp"
+        android:background= "@drawable/janet_bewley"/>
+    <TextView
+        android:id = "@+id/name"
+        android:layout_toRightOf="@id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Janet Bewley"
+        android:layout_alignTop="@id/avatar"
+        android:layout_marginLeft="10dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+    <TextView
+        android:id = "@+id/type"
+        android:layout_toRightOf="@id/avatar"
+        android:layout_below = "@id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Senator"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16dp"
+
+        android:textColor="#000000" />
+
+    <TextView
+        android:id = "@+id/party"
+        android:layout_toRightOf="@id/avatar"
+        android:layout_below = "@id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Democrat"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16dp"
+
+        android:textColor="#2853fc" />
+    <TextView
+        android:id = "@+id/inoffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/avatar"
+        android:text = "In Office:"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textSize="16dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id = "@+id/serviceterm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/avatar"
+        android:layout_toRightOf="@id/inoffice"
+        android:layout_marginLeft="10dp"
+        android:text = "November '14 - November '16"
+        android:layout_marginTop="5dp"
+        android:textSize="16dp"
+        android:textColor="#000000" />
+    <View
+        android:id = "@+id/line"
+        android:layout_below="@id/inoffice"
+        android:layout_width="300dp"
+        android:layout_marginLeft="18dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:id = "@+id/committee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Committee Membership"
+        android:textColor = "#000000"
+        android:layout_below="@id/line"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+
+        />
+
+    <TextView
+        android:id = "@+id/committeeinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/committee"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"
+        android:text=
+            "- Committee on Environment and Forestry                 - Committee on Housing and Real Estate                 - Commitee on Jobs and the Economy
+- Committeee on Small Buisness Development
+- Commitee on Veterans and Military Affairs
+- Speaker's Task force on Urban Education"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:id = "@+id/bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Bill Sponsorship"
+        android:textColor = "#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/committeeinfo"
+        />
+
+    <TextView
+        android:id="@+id/billinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bill"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000"
+        android:text="- Assembly Bill 15 (January 27, 2015)                                  - Senate bill 15 (Janaury 29, 2015)                              - Assembly Bill 124 (March 27, 2015)                         - Senate Bill 96 (March 27, 2015)
+- Senate Bill 227 (August 11, 2015)
+- Senate Bill 704 (February 3, 2016)"
+
+
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/panel"
+        style="?android:attr/borderlessButtonStyle"
+        android:text = "View 2012 Presidential Vote Data on Watch"
+        android:textAllCaps="false"
+        android:textColor="#5d74f8"
+        android:layout_centerHorizontal="true"
+        android:onClick = "showVote"
+        />
+
+
+
+</RelativeLayout>
