@@ -1,6 +1,6 @@
 # PROG 02: Represent!
 
-Briefly describe your app here.
+Represent! is an Android mobile and wear app that allows users to look up senators and representatives of different regions and check the 2012 presidential election data. 
 
 ## Authors
 
@@ -8,7 +8,7 @@ Jenny Chen ([jenny0322@berkeley.edu](mailto:jenny0322@berkeley.edu))
 
 ## Demo Video
 
-See [your demo video title here] (https://link_to_your_video)
+See [[CS160 Sp16] Represent! App Demo] (https://youtu.be/sybCZAOkZG0)
 
 ## Screenshots
 
@@ -16,5 +16,5 @@ See [your demo video title here] (https://link_to_your_video)
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* StackOverflow - "Android: I want to Shake It"
 * Any other support
