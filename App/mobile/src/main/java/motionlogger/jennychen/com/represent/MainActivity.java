@@ -13,9 +13,17 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity implements LocationListener{
+
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "jenny0322@berkeley.edu";
+    private static final String TWITTER_SECRET = "Cjj7788980208";
+
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected String randomized;
@@ -27,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_main);
         final EditText zipCode = (EditText) findViewById(R.id.zipcode);
 

@@ -31,6 +31,10 @@
 
         <activity android:name=".vote" />
         <activity android:name=".Show"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="112d4ba068c4a4e961fb332420f7e20a0df4b7ae" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
