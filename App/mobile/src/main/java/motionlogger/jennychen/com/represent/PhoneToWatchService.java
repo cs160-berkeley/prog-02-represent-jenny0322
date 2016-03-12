@@ -10,6 +10,9 @@ import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class PhoneToWatchService extends Service {
     private GoogleApiClient mApiClient;
     @Override
@@ -50,12 +53,24 @@ public class PhoneToWatchService extends Service {
                 public void run() {
                     //first, connect to the apiclient
                     mApiClient.connect();
-                    if (type.equals("vote") ||type.equals("show")) {
-                        final String randomized = extras.getString("RANDOMIZED");
-                        sendMessage("/" + type, randomized);
+                    if (type.equals("showZip") ||type.equals("show")) {
+
+                        try {
+                            final JSONObject candidates = new JSONObject(extras.getString("CANDIDATES"));
+                            sendMessage("/" + type, candidates.toString() + ";" + extras.getString("LOCATION"));
+                            ;
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }else  {
                         //now that you're connected, send a massage with the cat name
-                        sendMessage("/" + type, type);
+
+                            final String location = extras.getString("LOCATION");
+                            System.out.println("PTW service sends " + location);
+                            sendMessage("/" + type, location);
+
+
                     }
                 }
             }).start();

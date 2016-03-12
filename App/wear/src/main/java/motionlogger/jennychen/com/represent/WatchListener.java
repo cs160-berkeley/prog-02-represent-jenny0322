@@ -8,6 +8,9 @@ import android.util.Log;
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.nio.charset.StandardCharsets;
 
 public class WatchListener extends WearableListenerService {
@@ -21,33 +24,34 @@ public class WatchListener extends WearableListenerService {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
             Intent intent = new Intent(this, vote.class );
-            if (value.equals("true")) {
-                intent.putExtra("longitude", 10.00);
-                intent.putExtra("latitude", 10.00);
-            }else {
-                intent.putExtra("longitude", 0.00);
-                intent.putExtra("latitude", 0.00);
 
-            }
+            intent.putExtra("location", value);
+            System.out.println("Watch listener received" + value);
+
 
 
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //you need to add this flag since you're starting a new activity from a service
 
             startActivity(intent);
-        } else if (messageEvent.getPath().equalsIgnoreCase( SHOW )) {
+        } else if (messageEvent.getPath().equalsIgnoreCase( SHOW ) || messageEvent.getPath().equalsIgnoreCase( SHOWZIP )){
 
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            String[] values = value.split(";");
+            String candidates = values[0];
+            String location = values[1];
+            System.out.println("watchListener receives from show" + location);
             Intent intent = new Intent(this, Show.class );
 
-            if (value.equals("true")) {
-                intent.putExtra("longitude", 10.00);
-                intent.putExtra("latitude", 10.00);
-            }else {
-                intent.putExtra("longitude", 0.00);
-                intent.putExtra("latitude", 0.00);
-
+            try {
+                JSONObject candidateObj = new JSONObject(candidates);
+                intent.putExtra("candidates", candidateObj.toString());
+                intent.putExtra("location", location);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+
+
             intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK);
 
 
@@ -57,18 +61,7 @@ public class WatchListener extends WearableListenerService {
 
             startActivity(intent);
 
-        } else if (messageEvent.getPath().equalsIgnoreCase( SHOWZIP)) {
-
-            Intent intent = new Intent(this, Show.class);
-            intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("longitude", 0.00);
-            intent.putExtra("latitude", 0.00);
-
-            //you need to add this flag since you're starting a new activity from a service
-
-
-            startActivity(intent);
-        }else {
+        } else {
                 super.onMessageReceived( messageEvent );
 
         }

@@ -12,12 +12,17 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Show extends FragmentActivity {
-    public static double latitude;
-    public static double longitude;
+    public String location;
     private static int NUM_PAGES;
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    protected JSONArray people;
+    JSONObject currPerson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +33,18 @@ public class Show extends FragmentActivity {
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        latitude = extras.getDouble("latitude");
-        longitude = extras.getDouble("longitude");
-
-        if (longitude == 0.00 || latitude == 0.00) {
-
-            NUM_PAGES = 4;
-
-        }else {
-            NUM_PAGES = 3;
+        location = extras.getString("location");
+        try {
+            JSONObject candidates = new JSONObject(intent.getStringExtra("candidates"));
+            people = candidates.optJSONArray("results");
+            NUM_PAGES = people.length();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
 
         mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), people);
         mPager.setAdapter(mPagerAdapter);
     }
     public void onBackPressed() {
@@ -53,15 +56,22 @@ public class Show extends FragmentActivity {
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        private JSONArray candidates;
 
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
+        public ScreenSlidePagerAdapter(FragmentManager fm, JSONArray people) {
             super(fm);
+            this.candidates = people;
         }
 
         @Override
         public Fragment getItem(int position) {
 
-            return ScreenSlidePageFragment.create(position);
+            try {
+                currPerson = candidates.getJSONObject(position);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }return ScreenSlidePageFragment.create(position, currPerson);
+
         }
 
         @Override
@@ -70,30 +80,37 @@ public class Show extends FragmentActivity {
             return NUM_PAGES;
         }
     }
-    public void displayVote(View view) {
-        Intent voteIntent = new Intent(this, vote.class);
-        voteIntent.putExtra("longitude", longitude);
-        voteIntent.putExtra("longitude", longitude);
-        startActivity(voteIntent);
-    }
+
     public void showDetail(View view) {
         Intent detailIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
         detailIntent.putExtra("DETAIL", "detail");
-        if (mPager.getCurrentItem() == 0) {
-
-            detailIntent.putExtra("NAME", "Janet Bewley");
-        }else if (mPager.getCurrentItem() == 1) {
-
-            detailIntent.putExtra("NAME", "Robert Cowles");
-        }else{
-
-            detailIntent.putExtra("NAME", "Scott Allen");
-        }if (longitude == 0.00 || latitude== 0.00) {
-            detailIntent.putExtra("RANDOMIZED", "false");
-        }else{
-            detailIntent.putExtra("RANDOMIZED", "true");
+        int currIndex = mPager.getCurrentItem();
+        try {
+            detailIntent.putExtra("PERSON", people.getJSONObject(currIndex).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+//        if (mPager.getCurrentItem() == 0) {
+//
+//            detailIntent.putExtra("NAME", "Janet Bewley");
+//        }else if (mPager.getCurrentItem() == 1) {
+//
+//            detailIntent.putExtra("NAME", "Robert Cowles");
+//        }else{
+//
+//            detailIntent.putExtra("NAME", "Scott Allen");
+//        }
+            detailIntent.putExtra("LOCATION", location);
+
+
+
 
         startService(detailIntent);
+    }
+
+    public void displayVote(View view) {
+        Intent voteIntent = new Intent(this, vote.class);
+        voteIntent.putExtra("location", location);
+        startActivity(voteIntent);
     }
 }

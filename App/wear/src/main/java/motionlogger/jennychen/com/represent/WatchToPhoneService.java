@@ -65,17 +65,18 @@ public class WatchToPhoneService extends Service {
                 mWatchApiClient.connect();
                 //now that you're connected, send a massage with the cat name
                 if (detail.equals("shake")) {
-                    final String randomized = extras.getString("RANDOMIZED");
-                    System.out.println("service randomized is " + randomized);
-                    sendMessage("/"+ detail, randomized );
+                    final String location= extras.getString("SHAKELOCATION");
+
+                    sendMessage("/"+ detail, location );
                 }else {
-                    final String name = extras.getString("NAME");
-                    final String randomized = extras.getString("RANDOMIZED");
-                    if (randomized.equals("true")){
-                        sendMessage("/detail_random", name);
-                    }else {
-                        sendMessage("/" + detail, name);
-                    }
+                    final String person = extras.getString("PERSON");
+//                    final String randomized = extras.getString("RANDOMIZED");
+//                    if (randomized.equals("true")){
+//                        sendMessage("/detail_random", name);
+//                    }else {
+                    final String location = extras.getString("LOCATION");
+                        sendMessage("/" + detail, person + ";" + location);
+//                    }
                 }
 
             }

@@ -11,30 +11,33 @@
     android:background="#f1f1f1"
     tools:showIn = "@layout/activity_detail">
 
-    <View
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="430dp"
         android:id= "@+id/panel"
-        android:background="#ffffff" />
+        android:background="#ffffff" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="90dp"
+        android:layout_width="90dp"
+        android:layout_height="110dp"
         android:id="@+id/avatar"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop = "15dp"
-        android:background= "@drawable/janet_bewley"/>
+        />
     <TextView
         android:id = "@+id/name"
         android:layout_toRightOf="@id/avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text = "Janet Bewley"
+        android:text = "Dianne Feinstein"
         android:layout_alignTop="@id/avatar"
         android:layout_marginLeft="10dp"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:textStyle="bold"
         android:textColor="#000000" />
     <TextView
@@ -45,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text = "Senator"
         android:layout_marginLeft="13dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6.5dp"
         android:textSize="16dp"
 
         android:textColor="#000000" />
@@ -58,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text = "Democrat"
         android:layout_marginLeft="13dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="6.5dp"
         android:textSize="16dp"
 
         android:textColor="#2853fc" />
@@ -66,10 +69,11 @@
         android:id = "@+id/inoffice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/avatar"
-        android:text = "In Office:"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/avatar"
+        android:layout_below="@id/party"
+        android:text = "Term Ends: "
+        android:layout_alignLeft="@id/party"
+        android:layout_marginTop="6.5dp"
         android:textSize="16dp"
         android:textColor="#000000" />
 
@@ -77,20 +81,20 @@
         android:id = "@+id/serviceterm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/avatar"
+        android:layout_alignBottom="@id/inoffice"
         android:layout_toRightOf="@id/inoffice"
-        android:layout_marginLeft="10dp"
-        android:text = "November '14 - November '16"
+        android:layout_marginLeft="5dp"
+        android:text = "November '16"
         android:layout_marginTop="5dp"
         android:textSize="16dp"
         android:textColor="#000000" />
     <View
         android:id = "@+id/line"
-        android:layout_below="@id/inoffice"
+        android:layout_below="@id/avatar"
         android:layout_width="300dp"
         android:layout_marginLeft="18dp"
         android:layout_height="1dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/darker_gray"/>
     <TextView
         android:id = "@+id/committee"
@@ -108,12 +112,12 @@
 
     <TextView
         android:id = "@+id/committeeinfo"
-        android:layout_width="wrap_content"
+        android:layout_width="295dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/committee"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="5dp"
+
         android:text=
             "- Committee on Environment and Forestry                 - Committee on Housing and Real Estate                 - Commitee on Jobs and the Economy
 - Committeee on Small Buisness Development
@@ -124,20 +128,19 @@
 
     <TextView
         android:id = "@+id/bill"
-        android:layout_width="wrap_content"
+        android:layout_width="295dp"
         android:layout_height="wrap_content"
         android:text = "Bill Sponsorship"
         android:textColor = "#000000"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/committeeinfo"
         />
 
     <TextView
         android:id="@+id/billinfo"
-        android:layout_width="wrap_content"
+        android:layout_width="295dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bill"
         android:layout_marginTop="5dp"
@@ -145,11 +148,13 @@
         android:textColor="#000000"
         android:text="- Assembly Bill 15 (January 27, 2015)                                  - Senate bill 15 (Janaury 29, 2015)                              - Assembly Bill 124 (March 27, 2015)                         - Senate Bill 96 (March 27, 2015)
 - Senate Bill 227 (August 11, 2015)
-- Senate Bill 704 (February 3, 2016)"
+- Senate Bill 704 (February 3, 2016)"/>
+        </RelativeLayout>
+        </ScrollView>
 
 
 
-        />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
