@@ -11,13 +11,13 @@ Jenny Chen ([jenny0322@berkeley.edu](mailto:jenny0322@berkeley.edu))
 See [[CS160 Sp16] Represent! App Demo] (https://youtu.be/v8YlPmme95Y)
 
 ## Screenshots
-
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
-<img src="screenshots/mobile_congressview.png" height="400" alt="Screenshot"/>
+Mobile
+<img src="screenshots/main.png" height="400" alt="Screenshot"/>&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="screenshots/mobile_congressview.png" height="400" alt="Screenshot"/>&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="screenshots/mobile_detailview.png" height="400" alt="Screenshot"/>
-<br>
-<img src="screenshots/watch_congressview.png" height="400" alt="Screenshot"/>
-<img src="screenshots/watch_voteview.png" height="400" alt="Screenshot"/>
+<br>Wear
+<img src="screenshots/watch_congressview.png" height="200" alt="Screenshot"/>
+<img src="screenshots/watch_voteview.png" height="200" alt="Screenshot"/>
 
 ## Acknowledgments
 
